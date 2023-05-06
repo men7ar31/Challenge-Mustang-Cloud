@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords">
+  <meta name="robots">
+  <meta name="author">
+  <style>
+h2 {
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  overflow-x: auto; /* Agregamos scroll horizontal si el contenido excede el ancho */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+img {
+  max-width: 30px;
+  height: auto;
+  margin-right: 10px;
+}
+@media screen and (max-width: 600px) {
+  .container {
+    overflow-x: auto;
+    display: block;
+  }
+  
+  table {
+    table-layout: fixed;
+  }
+  
+  th, td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+   </style>
+  <title>Tabla de Posiciónes del Futbol Argentino</title>
+  <meta name="description" content="Consulta las posiciones actualizadas del fútbol argentino y sigue el rendimiento de los equipos en la liga profesional de Argentina">
+</head>
+<body>
+  <div class="container">
+  <h1>TABLA DE POSICIONES DEL FÚTBOL ARGENTINO</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Posición</th>
+        <th>Equipo</th>
+        <th>PJ</th>
+        <th>G</th>
+        <th>E</th>
+        <th>P</th>
+        <th>GF</th>
+        <th>GC</th>
+        <th>DG</th>
+        <th>Puntos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tabla.forEach(function(item, index) { %>
+        <% if (index < 4) { %>
+          <tr style="background-color: #4d9b4b;">
+        <% } else if (index >= tabla.length - 4) { %>
+          <tr style="background-color: #f12b2bbb;">
+        <% } else { %>
+          <tr>
+        <% } %>
+          <td><%= item.posicion %></td>
+          <td><img src="<%= item.img %>" alt="">
+            <%= item.equipo %></td>
+          <td><%= item.pjs %></td>
+          <td><%= item.ganados %></td>
+          <td><%= item.empatados %></td>
+          <td><%= item.perdidos %></td>
+          <td><%= item.gf %></td>
+          <td><%= item.gc %></td>
+          <td><%= item.dg %></td>
+          <td><%= item.puntos %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
