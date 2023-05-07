@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 
-mongoose.connect('mongodb://localhost/tabla-de-posiciones', {
+mongoose.connect(process.env.BD_URL, {
     useNewUrlParser: false, // Eliminar esta opción
     useUnifiedTopology: true, // Otras opciones de conexión
     // ... Otras opciones de conexión

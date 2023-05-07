@@ -1,7 +1,8 @@
 const express = require("express");
 const cheerio = require("cheerio");
-const exphbs  = require('express-handlebars');
 const request = require("request-promise");
+require('dotenv').config();
+
 
 const Tabla = require("./models/tablaModels");
 const cron = require("node-cron");
@@ -66,14 +67,14 @@ async function inicio() {
         console.error('Error:', error);
       });
 });
-      
-
 }
-cron.schedule("*/5 * * * *", () => {
+
+const cronTime = process.env.CRON_TIME;
+
+cron.schedule(cronTime, () => {
   Tabla.deleteMany({})
   .then(() => {
     console.log('Tabla borrada exitosamente');
-    // Aquí puedes realizar las operaciones para guardar los nuevos datos obtenidos
   })
   .catch((error) => {
     console.error('Error al borrar tabla:', error);
