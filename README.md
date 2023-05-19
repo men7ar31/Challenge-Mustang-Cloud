@@ -3,6 +3,3 @@ Desafio de entrevista (Consulta las posiciones actualizadas del fútbol argentin
 
 Para correr el programa usar el comando "npm run dev"
 
-VARIABLES DE ENTORNO 
-BD_URL=mongodb+srv://root:1234@tabla-posiciones.rpknsys.mongodb.net/
-CRON_TIME=*/5 * * * *
