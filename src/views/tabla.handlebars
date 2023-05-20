@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tabla de posiciones</title>
+</head>
+<body>
+  <h1>TABLA DE POSICIONES DEL FÚTBOL ARGENTINO
+</h1>
+  <table>
+    <thead>
+      <tr class="fila">
+        <th class="columna">Posición</th>
+        <th class="columna">Equipo</th>
+        <th class="columna">PJ</th>
+        <th class="columna">Ganados</th>
+        <th class="columna">Empatados</th>
+        <th class="columna">Perdidos</th>
+        <th class="columna">GF</th>
+        <th class="columna">GC</th>
+        <th class="columna">DG</th>
+        <th class="columna">Puntos</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each equipo}}
+      <tr style= "background-color: {{posicionColor this.posicion}}" class="fila">
+        <td class="columna">{{this.posicion}}</td>
+        <td class="columna"> <img src="{{this.img}}" alt="{{this.equipo}}">
+            {{this.equipo}}</td>
+        <td class="columna">{{this.pjs}}</td>
+        <td class="columna">{{this.ganados}}</td>
+        <td class="columna">{{this.empatados}}</td>
+        <td class="columna">{{this.perdidos}}</td>
+        <td class="columna">{{this.gf}}</td>
+        <td class="columna">{{this.gc}}</td>
+        <td class="columna">{{this.dg}}</td>
+        <td class="columna">{{this.puntos}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+<style>
+h1 {
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  overflow-x: auto; /* Agregamos scroll horizontal si el contenido excede el ancho */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+img {
+  max-width: 30px;
+  height: auto;
+  margin-right: 10px;
+}
+@media screen and (max-width: 850px) {
+  .container {
+    overflow-x: auto;
+    display: block;
+  }
+  
+  table {
+    table-layout: fixed;
+  }
+  
+  th, td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .fila td:nth-child(2),
+  .fila th:nth-child(2) { width: 40%;}
+
+  .fila td:nth-child(6),
+  .fila th:nth-child(6),
+  .fila td:nth-child(7),
+  .fila th:nth-child(7),
+  .fila td:nth-child(8),
+  .fila th:nth-child(8) { display: none; }
+  
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    overflow-x: auto;
+    display: block;
+  }
+  
+  table {
+    table-layout: fixed;
+  }
+  
+  th, td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+   .fila td:nth-child(2),
+   .fila th:nth-child(2) { width: 7%; }
+
+  
+  .fila td:nth-child(6),
+  .fila th:nth-child(6),
+  .fila td:nth-child(7),
+  .fila th:nth-child(7),
+  .fila td:nth-child(8),
+  .fila th:nth-child(8) { display: none; }
+
+}
+
+
+</style>
+</body>
+</html>

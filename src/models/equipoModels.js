@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const tablaSchemas = mongoose.Schema({
+const equipoSchemas = mongoose.Schema({
     posicion: Number,
     img: String,
     equipo: String,
@@ -14,4 +14,4 @@ const tablaSchemas = mongoose.Schema({
     puntos: Number
 })
 
-module.exports = mongoose.model('Tabla', tablaSchemas)
+module.exports = mongoose.model('Equipo', equipoSchemas)
